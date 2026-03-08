@@ -132,12 +132,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'vite-project/dist/assets')]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "http://localhost:5174",
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
-
-# productive setting
-
-import sys
-sys.path.insert(0, os.path.join(BASE_DIR))
