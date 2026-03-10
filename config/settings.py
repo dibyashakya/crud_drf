@@ -14,17 +14,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-$m2@&vlr^mvd)b+-7nch$
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '.railway.app',                                        # ← allows all Railway domains
-    os.environ.get('RAILWAY_PUBLIC_DOMAIN', ''),           # ← your specific Railway domain
-]
+ALLOWED_HOSTS = ['*']          # ← your specific Railway domain
+
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -116,10 +114,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # CORS — allow your frontend Railway domain + localhost
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    os.environ.get('FRONTEND_URL', ''),                   # set this in Railway env vars
-]
+
 CORS_ALLOW_ALL_ORIGINS = os.environ.get('CORS_ALLOW_ALL', 'False') == 'True'
 
 
