@@ -21,7 +21,6 @@ ALLOWED_HOSTS = ['*']          # ← your specific Railway domain
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -114,7 +113,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # CORS — allow your frontend Railway domain + localhost
 
 
-CORS_ALLOW_ALL_ORIGINS = os.environ.get('CORS_ALLOW_ALL', 'False') == 'True'
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Default primary key field type
