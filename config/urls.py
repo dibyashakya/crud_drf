@@ -17,10 +17,10 @@ Including another URLconf
 # project level urls.py
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base import RedirectView
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/grocery/', include('grocceryitem.urls')),
-    path('', RedirectView.as_view(url='/api/grocery/', permanent=False)),  # ← add this
+    path('', TemplateView.as_view(template_name='index.html')),  # ← serves Vite frontend
 ]
