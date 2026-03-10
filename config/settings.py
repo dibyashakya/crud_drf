@@ -81,12 +81,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# ✅ FIX 2: Only set STATICFILES_DIRS if the folder actually exists (avoids Railway crash)
-_vite_dist = os.path.join(BASE_DIR, 'vite-project/dist/assets')
-if os.path.exists(_vite_dist):
-    STATICFILES_DIRS = [_vite_dist]
-else:
-    STATICFILES_DIRS = []
+
 
 # ✅ FIX 3: Allow your Railway domain + localhost for CORS
 CORS_ALLOWED_ORIGINS = os.environ.get(
