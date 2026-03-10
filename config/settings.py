@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-$m2@&vlr^mvd)b+-7nch$
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # ✅ FIX 1: Allow Railway's domain
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [os.environ.get('RAILWAY_PUBLIC_DOMAIN', '*'), 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
